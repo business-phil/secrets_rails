@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
               session[:user_id] = @user.id
               redirect_to "/users/#{@user.id}"
           else
-              redirect_to "/sessions/new", alert: 'Invalid password'
+              redirect_to "/sessions/new", alert: ['Invalid password']
           end
       else
-          redirect_to "/sessions/new", alert: 'Invalid email'
+          redirect_to "/sessions/new", alert: ['Invalid email']
       end
   end
   def logout

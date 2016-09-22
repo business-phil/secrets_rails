@@ -1,7 +1,4 @@
 <h2>Log In</h2>
-<% if alert %>
-    <ul><li><%= alert %></li></ul>
-<% end %>
 <form action="/sessions/login" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
     <p>Email: <input type="text" name="email" /></p>

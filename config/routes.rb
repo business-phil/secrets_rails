@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete 'sessions' => 'sessions#logout'
 
   get 'users/new'
+  post 'users' => 'users#create'
   get 'users/:id' => 'users#view'
 
   # The priority is based upon order of creation: first created -> highest priority.

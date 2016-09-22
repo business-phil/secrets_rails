@@ -14,6 +14,13 @@
         <input type="submit" value="Log Out" />
     </form>
 <% end %>
+<% if alert %>
+    <ul>
+        <% alert.each do |a| %>
+        <li><%= a %></li>
+        <% end %>
+    </ul>
+<% end %>
 <%= yield %>
 
 </body>
