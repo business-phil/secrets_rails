@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+     before_action :set_user, only: [:view, :edit, :update]
   def new
   end
 
@@ -13,6 +14,21 @@ class UsersController < ApplicationController
   end
 
   def view
+  end
+
+  def edit
+  end
+
+  def update
+      if @user.update(email:params[:email], name:params[:name])
+          redirect_to "/users/#{@user.id}"
+      else
+          redirect_to "/users/#{@user.id}/edit", alert:@user.errors.full_messages
+      end
+  end
+
+  private
+  def set_user
       @user = User.find(params[:id])
   end
 end
