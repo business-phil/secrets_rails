@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-     before_action :set_user, only: [:view, :edit, :update]
+     before_action :set_user, only: [:view, :edit, :update, :destroy]
   def new
   end
 
@@ -25,6 +25,12 @@ class UsersController < ApplicationController
       else
           redirect_to "/users/#{@user.id}/edit", alert:@user.errors.full_messages
       end
+  end
+
+  def destroy
+      session[:user_id] = nil if session[:user_id]
+      @user.destroy
+      redirect_to "/sessions/new"
   end
 
   private
