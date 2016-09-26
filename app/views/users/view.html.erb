@@ -2,6 +2,12 @@
 <% if @user.id == session[:user_id] %>
     <p><a href="/users/<%= @user.id %>/edit">Edit Profile</a></p>
 <% end %>
+<form action="/secrets" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    <p>New Secret:</p>
+    <textarea name="content" rows="8" cols="40"></textarea>
+    <p><input type="submit" value="Create Secret" /></p>
+</form>
 <h4>Secrets</h4>
 <% @user.secrets.each do |secret| %>
     <p><%= secret.content %></p>
