@@ -11,4 +11,10 @@ class SecretsController < ApplicationController
           redirect_to "/users/#{session[:user_id]}", alert: secret.errors.full_messages
       end
   end
+
+  def destroy
+      @secret = Secret.find(params[:id])
+      @secret.destroy
+      redirect_to "/users/#{session[:user_id]}"
+  end
 end
