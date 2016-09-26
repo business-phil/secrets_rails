@@ -2,3 +2,7 @@
 <% if @user.id == session[:user_id] %>
     <p><a href="/users/<%= @user.id %>/edit">Edit Profile</a></p>
 <% end %>
+<h4>Secrets</h4>
+<% @user.secrets.each do |secret| %>
+    <p><%= secret.content %></p>
+<% end %>
