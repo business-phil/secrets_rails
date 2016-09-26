@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
      before_action :set_user, only: [:view, :edit, :update, :destroy]
+     before_action :require_login, except: [:new, :create]
+     before_action :require_correct_user, only: [:view, :edit, :update, :destroy]
   def new
   end
 
