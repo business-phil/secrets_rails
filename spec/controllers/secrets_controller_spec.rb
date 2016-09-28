@@ -26,7 +26,6 @@ RSpec.describe SecretsController, type: :controller do
         before do
             @wrong_user = create_user 'erica', 'erica@lacy.com'
             session[:user_id] = @wrong_user.id
-            @secret = @user.secrets.create(content: 'a secret')
         end
         it 'cannot access destroy' do
             delete :destroy, id: @secret, user_id: @user
